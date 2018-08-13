@@ -9,10 +9,16 @@ import RootReducer from './Reducers';
 
 const middleware = applyMiddleware(thunk, promise, logger);
 
-const Store = createStore(RootReducer, compose(middleware, devTools({
-  name: Platform.OS,
-  hostname: 'localhost',
-  port: 5678
-})));
+const Store = createStore(
+  RootReducer,
+  compose(
+    middleware,
+    devTools({
+      name: Platform.OS,
+      hostname: 'localhost',
+      port: 5678
+    })
+  )
+);
 
 export default Store;
